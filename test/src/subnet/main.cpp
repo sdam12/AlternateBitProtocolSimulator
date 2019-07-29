@@ -17,7 +17,7 @@
 #include "../../../lib/NDTime.hpp"
 #include "../../../lib/iestream.hpp"
 
-#include "../../../include/message.hpp"
+#include "../../../include/data_structures/message.hpp"
 
 #include "../../../include/subnetCadmium.hpp"
 

@@ -7,10 +7,10 @@ bin_directroy := $(shell mkdir -p bin)
 build_directroy := $(shell mkdir -p build)
 
 all: main.o sender_main.o receiver_main.o subnet_main.o ../message.o
-	$(CC) -g -o bin/ABP ../../build/main.o ../../build/message.o
-	$(CC) -g -o bin/SENDER_TEST ../../build/sender_main.o ../../build/message.o
-	$(CC) -g -o bin/RECEIVER_TEST ../../build/receiver_main.o ../../build/message.o
-	$(CC) -g -o bin/SUBNET_TEST ../../build/subnet_main.o ../../build/message.o
+	$(CC) -g -o bin/ABP build/main.o build/message.o
+	$(CC) -g -o bin/SENDER_TEST build/sender_main.o build/message.o
+	$(CC) -g -o bin/RECEIVER_TEST build/receiver_main.o build/message.o
+	$(CC) -g -o bin/SUBNET_TEST build/subnet_main.o build/message.o
 	
 main.o: src/main.cpp
 	$(CC) -g -c $(CFLAGS) $(INCLUDECADMIUM) src/main.cpp -o build/main.o

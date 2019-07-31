@@ -26,4 +26,3 @@ subnet_main.o: test/src/subnet/main.cpp
 	
 clean:
 	rm -f bin/*.exe build/*.o *~
-	-for d in src; do (cd $$d; rm -f *.o *~ ); done

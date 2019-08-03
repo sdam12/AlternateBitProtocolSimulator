@@ -26,7 +26,7 @@
 
 using namespace std;
 
-    using hclock=chrono::high_resolution_clock;
+    using hclock = chrono::high_resolution_clock;
     using TIME = NDTime;
 
 
@@ -72,24 +72,24 @@ using namespace std;
             }
         };
 
-        using info=cadmium::logger::logger<cadmium::logger::logger_info, cadmium::
+        using info = cadmium::logger::logger<cadmium::logger::logger_info, cadmium::
         dynamic::logger::formatter<TIME>, oss_sink_provider>;
-        using debug=cadmium::logger::logger<cadmium::logger::logger_debug, cadmium::
+        using debug = cadmium::logger::logger<cadmium::logger::logger_debug, cadmium::
         dynamic::logger::formatter<TIME>, oss_sink_provider>;
-        using state=cadmium::logger::logger<cadmium::logger::logger_state, cadmium::
+        using state = cadmium::logger::logger<cadmium::logger::logger_state, cadmium::
         dynamic::logger::formatter<TIME>, oss_sink_provider>;
-        using log_messages=cadmium::logger::logger<cadmium::logger::logger_messages, 
+        using log_messages = cadmium::logger::logger<cadmium::logger::logger_messages, 
         cadmium::dynamic::logger::formatter<TIME>, oss_sink_provider>;
-        using routing=cadmium::logger::logger<cadmium::logger::logger_message_routing, 
+        using routing = cadmium::logger::logger<cadmium::logger::logger_message_routing, 
         cadmium::dynamic::logger::formatter<TIME>, oss_sink_provider>;
-        using global_time=cadmium::logger::logger<cadmium::logger::logger_global_time, 
+        using global_time = cadmium::logger::logger<cadmium::logger::logger_global_time, 
         cadmium::dynamic::logger::formatter<TIME>, oss_sink_provider>;
-        using local_time=cadmium::logger::logger<cadmium::logger::logger_local_time, 
+        using local_time = cadmium::logger::logger<cadmium::logger::logger_local_time, 
         cadmium::dynamic::logger::formatter<TIME>, oss_sink_provider>;
-        using log_all=cadmium::logger::multilogger<info, debug, state, log_messages, 
+        using log_all = cadmium::logger::multilogger<info, debug, state, log_messages, 
         routing, global_time, local_time>;
         
-        using logger_top=cadmium::logger::multilogger<log_messages, global_time>;
+        using logger_top = cadmium::logger::multilogger<log_messages, global_time>;
         
         
         /*******************************************/

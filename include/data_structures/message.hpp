@@ -12,8 +12,7 @@ using namespace std;
 /*******************************************/
     struct Message_t{
         Message_t(){}
-        Message_t(float i_value)
-        :value(i_value){}
+        Message_t(float i_value):value(i_value){}
         float   value;
         void clear(){
             Message_t(); 

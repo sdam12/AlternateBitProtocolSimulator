@@ -3,8 +3,8 @@
 * ARSLab - Carleton University
 */
 
-#ifndef BOOST_SIMULATION_PDEVS_SENDER_HPP
-#define BOOST_SIMULATION_PDEVS_SENDER_HPP
+#ifndef __BOOST_SIMULATION_PDEVS_SENDER_HPP__
+#define __BOOST_SIMULATION_PDEVS_SENDER_HPP__
 
 #include <cadmium/modeling/ports.hpp>
 #include <cadmium/modeling/message_bag.hpp>
@@ -45,12 +45,12 @@ using namespace std;
         using defs=Sender_defs; // putting definitions in context
         public:
             //Parameters to be overwriten when instantiating the atomic model
-            TIME   preparation_time;
-            TIME   timeout;
+            TIME   PREPARATION_TIME;
+            TIME   TIME_OUT;
             // default constructor
             Sender() noexcept{
-                preparation_time  = TIME("00:00:10");
-                timeout          = TIME("00:00:20");
+                PREPARATION_TIME  = TIME("00:00:10");
+                TIME_OUT          = TIME("00:00:20");
                 state.alt_bit    = 0;
                 state.next_internal    = std::numeric_limits<TIME>::infinity();
                 state.model_active     = false;
@@ -80,7 +80,7 @@ using namespace std;
                         state.alt_bit = (state.alt_bit + 1) % 2;
                         state.sending = true;
                         state.model_active = true; 
-                        state.next_internal = preparation_time;   
+                        state.next_internal = PREPARATION_TIME;   
                     } 
 				    else {
                         state.model_active = false;
@@ -91,12 +91,12 @@ using namespace std;
                     if (state.sending){
                         state.sending = false;
                         state.model_active = true;
-                        state.next_internal = timeout;
+                        state.next_internal = TIME_OUT;
                     } 
 				    else {
                         state.sending = true;
                         state.model_active = true;
-                        state.next_internal = preparation_time;    
+                        state.next_internal = PREPARATION_TIME;    
                     } 
                 }   
             }
@@ -117,7 +117,7 @@ using namespace std;
                             state.sending = true;
                             state.alt_bit = state.packet_num % 2;  //set initial alt_bit
                             state.model_active = true;
-                            state.next_internal = preparation_time;
+                            state.next_internal = PREPARATION_TIME;
                         }
 					    else{
                             if(state.next_internal != std::numeric_limits<TIME>::infinity()){
@@ -181,4 +181,4 @@ using namespace std;
                 return os;
             }
     };     
-#endif // BOOST_SIMULATION_PDEVS_SENDER_HPP
+#endif // __BOOST_SIMULATION_PDEVS_SENDER_HPP__

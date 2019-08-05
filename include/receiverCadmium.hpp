@@ -29,7 +29,7 @@ using namespace cadmium;
 using namespace std;
 
 	//Port definition
-    struct Receiver_defs{
+    struct receiver_defs{
         struct out : public out_port<message_t> {
         };
         struct in : public in_port<message_t> {
@@ -38,7 +38,7 @@ using namespace std;
    
     template<typename TIME>
     class Receiver{
-        using defs=Receiver_defs; // putting definitions in context
+        using defs=receiver_defs; // putting definitions in context
         public:
             //Parameters to be overwriten when instantiating the atomic model
             TIME   PREPARATION_TIME;

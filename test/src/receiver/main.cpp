@@ -19,7 +19,7 @@
 
 #include "../../../include/data_structures/message.hpp"
 
-#include "../../../include/receiverCadmium.hpp"
+#include "../../../include/receiver_cadmium.hpp"
 
 using namespace std;
 

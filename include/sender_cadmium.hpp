@@ -68,8 +68,11 @@ using namespace std;
             }; 
             state_type state;
             // ports definition
-            using input_ports=std::tuple<typename defs::controlIn, typename defs::ackIn>;
-            using output_ports=std::tuple<typename defs::packetSentOut, typename defs::ackReceivedOut, typename defs::dataOut>;
+            using input_ports=std::tuple<typename defs::controlIn, 
+			                             typename defs::ackIn>;
+            using output_ports=std::tuple<typename defs::packetSentOut, 
+			                              typename defs::ackReceivedOut, 
+										  typename defs::dataOut>;
 
             // internal transition
             void internal_transition() {
@@ -103,7 +106,7 @@ using namespace std;
 
             // external transition
             void external_transition(TIME e, 
-			typename make_message_bags<input_ports>::type mbs) { 
+			                         typename make_message_bags<input_ports>::type mbs) { 
                 if((get_messages<typename defs::controlIn>
 				(mbs).size()+get_messages<typename defs::ackIn>(mbs).size())>1) {
 					assert(false && "one message per time uniti");
@@ -146,7 +149,7 @@ using namespace std;
 
             // confluence transition
             void confluence_transition(TIME e, 
-			typename make_message_bags<input_ports>::type mbs) {
+			                          typename make_message_bags<input_ports>::type mbs) {
                 internal_transition();
                 external_transition(TIME(), std::move(mbs));
             }
@@ -175,7 +178,7 @@ using namespace std;
             }
 
             friend std::ostringstream& operator<<(std::ostringstream& os, 
-			const typename Sender<TIME>::state_type& i) {
+			                                      const typename Sender<TIME>::state_type& i) {
                 os << "packet_num: " << i.packet_num << " & totalpacket_num: " 
 				<< i.totalpacket_num; 
                 return os;
